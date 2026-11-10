@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collection Plan · Mind Data Platform (concept)</title>
+<link rel="icon" href="assets/mind-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hdr">
+  <a class="logo" href="#" aria-label="Mind Robotics">
+    <svg viewBox="440 500 620 500" width="80" height="64" aria-hidden="true"><path d="M640 900V600C640 544.772 595.228 500 540 500C484.772 500 440 544.772 440 600L440 900C440 955.228 484.772 1000 540 1000C595.228 1000 640 955.228 640 900Z"/><path d="M650 660.036C650 715.265 694.772 760.036 750 760.036C805.228 760.036 850 715.265 850 660.036C850 604.808 805.228 560.036 750 560.036C694.772 560.036 650 604.808 650 660.036Z"/><path d="M1060 900V600C1060 544.772 1015.23 500 960 500C904.772 500 860 544.772 860 600V900C860 955.228 904.772 1000 960 1000C1015.23 1000 1060 955.228 1060 900Z"/></svg>
+  </a>
+  <nav class="nav" aria-label="Data platform">
+    <a class="pill pill-ghost" href="#">Datasets</a>
+    <a class="pill pill-ghost" href="#">Capture</a>
+    <a class="pill pill-on" href="#" aria-current="page">Plan</a>
+    <a class="pill pill-ghost" href="#">Annotation</a>
+    <a class="pill pill-ghost" href="#">Evals</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="crumbs text-chip"><span>Data platform</span><span class="sep">/</span><span id="site"></span><span class="sep">/</span><span id="weeks"></span></div>
+    <h1 class="h2">
+      <span class="tag tag-teal">Where</span> the next <span class="tag tag-white" id="h-shifts"></span><br>
+      <span class="tag tag-coral" id="h-line"></span> of capture should go
+    </h1>
+    <div class="hero-grid">
+      <p class="lead" id="lead"></p>
+      <div class="kpis" id="kpis"></div>
+    </div>
+  </section>
+
+  <section class="card plan">
+    <div class="plan-main">
+      <div class="sec-head">
+        <span class="num">01</span>
+        <div>
+          <h2 class="h4">Two-week capture plan</h2>
+          <p class="sub" id="plan-sub"></p>
+        </div>
+      </div>
+      <table class="tbl" id="plan-table"></table>
+    </div>
+    <aside class="plan-side">
+      <div class="side-block">
+        <div class="label">Budget</div>
+        <label class="slider"><span>Rig-shifts</span><b id="v-rig"></b><input type="range" id="in-rig" min="20" max="200" step="5"></label>
+        <label class="slider"><span>Annotation hours</span><b id="v-ann"></b><input type="range" id="in-ann" min="100" max="800" step="10"></label>
+        <button class="pill pill-on btn" id="replan">Re-plan</button>
+        <div class="tiny" id="replan-note"></div>
+      </div>
+      <div class="side-block">
+        <div class="label">Budget used</div>
+        <div class="meter"><div class="meter-top"><span>Rig-shifts</span><span id="m-rig"></span></div><div class="bar"><i id="b-rig"></i></div></div>
+        <div class="meter"><div class="meter-top"><span>Annotation hours</span><span id="m-ann"></span></div><div class="bar"><i id="b-ann" class="coral"></i></div></div>
+        <div class="meter"><div class="meter-top"><span>New cycles</span><span id="m-cyc"></span></div></div>
+      </div>
+      <div class="side-block">
+        <div class="label">Why not the R1 line</div>
+        <p class="why" id="why"></p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="card">
+    <div class="sec-head">
+      <span class="num">02</span>
+      <div>
+        <h2 class="h4">Learning curves by station</h2>
+        <p class="sub">Bench-eval failure rate against captured cycles, fit jointly across stations and programs. Bands are 80% posterior intervals; the hollow marker is where the plan takes each slice.</p>
+      </div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="curves" id="curves"></div>
+  </section>
+
+  <div class="two">
+    <section class="card">
+      <div class="sec-head">
+        <span class="num">03</span>
+        <div>
+          <h2 class="h4">What we have, what's missing</h2>
+          <p class="sub">Cycles captured per slice, and how many assists per day the next 1,000 cycles would remove. Coral bars mark the five slices where new cycles are worth the most.</p>
+        </div>
+      </div>
+      <table class="tbl cov" id="cov"></table>
+    </section>
+    <section class="card">
+      <div class="sec-head">
+        <span class="num">04</span>
+        <div>
+          <h2 class="h4">Forecast check</h2>
+          <p class="sub" id="bt-sub"></p>
+        </div>
+      </div>
+      <div id="bt"></div>
+      <div class="bt-stats" id="bt-stats"></div>
+      <div class="rel" id="rel"></div>
+    </section>
+  </div>
+
+  <section class="card">
+    <div class="sec-head">
+      <span class="num">05</span>
+      <div>
+        <h2 class="h4">Same budget, other ways to spend it</h2>
+        <p class="sub" id="cmp-sub"></p>
+      </div>
+    </div>
+    <div id="cmp"></div>
+  </section>
+
+  <section class="card method">
+    <div class="sec-head">
+      <span class="num">06</span>
+      <div><h2 class="h4">How the plan is computed</h2></div>
+    </div>
+    <ol class="steps" id="steps"></ol>
+  </section>
+</main>
+<footer class="foot">Unofficial concept demo by Mohith Gajjela. Not affiliated with Mind Robotics. Synthetic data. <a href="https://github.com/Mohith26/mind-robotics-collection-planner">Source and tests</a></footer>
+<script src="data/bundle.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
